@@ -17,6 +17,7 @@
 		D7EF198FAC4600C1F12CEB23 /* libPods-rn_restaurants.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 032CA0066A1C4E4182086EC0 /* libPods-rn_restaurants.a */; };
 		E1770FEDA64F4775831A3A0B /* Tajawal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF758529536E491D80B28EA3 /* Tajawal-Light.ttf */; };
 		EDB6D1E066B4454AA7BF7FE6 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA707665DA744F5AF120A7A /* Tajawal-Bold.ttf */; };
+		0D99D6B0CEA746758C4EC40C /* materialdesignicons-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DC01BCFB1224A62B3A50167 /* materialdesignicons-webfont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		00E356F21AD99517003FC87E /* rn_restaurantsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rn_restaurantsTests.m; sourceTree = "<group>"; };
 		015222C7ABE546439617B9E8 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		032CA0066A1C4E4182086EC0 /* libPods-rn_restaurants.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rn_restaurants.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0435ACF426A827F600417C23 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		048BE08E2699876300CDDDDC /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		1095218D024A475685BDBAF2 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		11DA5FA8CFAE4A22B09A465B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F9BA2FEB10C461EF1EEB2E99 /* libPods-rn_restaurants-rn_restaurantsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rn_restaurants-rn_restaurantsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAC21F8A2E9A852B3EAE70D /* Pods-rn_restaurants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_restaurants.debug.xcconfig"; path = "Target Support Files/Pods-rn_restaurants/Pods-rn_restaurants.debug.xcconfig"; sourceTree = "<group>"; };
+		1DC01BCFB1224A62B3A50167 /* materialdesignicons-webfont.ttf */ = {isa = PBXFileReference; name = "materialdesignicons-webfont.ttf"; path = "../assets/fonts/materialdesignicons-webfont.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 		048BE08D269986BD00CDDDDC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0435ACF426A827F600417C23 /* MaterialCommunityIcons.ttf */,
 				048BE08E2699876300CDDDDC /* Ionicons.ttf */,
 			);
 			name = Fonts;
@@ -159,6 +163,7 @@
 				35CF128477B7469E8D434F78 /* Octicons.ttf */,
 				83076BDFDCB64786A4F90C24 /* SimpleLineIcons.ttf */,
 				6C5CACAB0C574A3E815B059C /* Zocial.ttf */,
+				1DC01BCFB1224A62B3A50167 /* materialdesignicons-webfont.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				EDB6D1E066B4454AA7BF7FE6 /* Tajawal-Bold.ttf in Resources */,
 				E1770FEDA64F4775831A3A0B /* Tajawal-Light.ttf in Resources */,
 				A885343DEA1841D99A2E0ED1 /* Tajawal-Regular.ttf in Resources */,
+				0D99D6B0CEA746758C4EC40C /* materialdesignicons-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

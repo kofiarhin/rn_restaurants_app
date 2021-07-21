@@ -1,4 +1,4 @@
-import {mocks, mockImages} from '../index';
+import {mocks, mockImages} from './mock';
 import camelize from 'camelize';
 
 export const restaurantRequest = (location = '37.7749295,-122.4194155') => {

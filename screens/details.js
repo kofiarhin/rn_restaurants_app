@@ -19,6 +19,10 @@ export const Details = ({route, navigation}) => {
           <Icon name="chevron-back-outline" size={40} />
         </TouchableOpacity>
       </View>
+
+      {/* show item poistion on map 
+        using google map
+      */}
       <View style={styles.container}>
         <Image
           source={{

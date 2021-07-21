@@ -13,6 +13,8 @@ import {RestaurantContext} from '../../mock/restaurant/restaurant.context';
 export const Restaurants = ({navigation}) => {
   const {restaurants} = useContext(RestaurantContext);
 
+  console.log(navigation);
+
   return (
     <SafeAreaView>
       <View>
