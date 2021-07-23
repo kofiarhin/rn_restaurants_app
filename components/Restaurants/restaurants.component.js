@@ -11,33 +11,62 @@ import {
 import {RestaurantContext} from '../../context/restaurant/restaurant.context';
 import {Search} from './component/Search.component';
 import {ActivityIndicator} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Restaurants = ({navigation}) => {
   const {restaurants, isLoading} = useContext(RestaurantContext);
 
   const renderRestaurants = () => {
     const renderRating = rating => {
-      const ratingArr = Array.from(new Array(Math.ceil(rating)));
-
-      const mapResult = ratingArr.map((item, index) => {
-        // return icons
-        return (
-          <FontAwesome
-            name="star"
-            color="#FDB827"
-            key={index}
-            size={20}
-            style={{
-              marginRight: 5,
-            }}
-          />
-        );
-      });
-
-      return mapResult;
+      if (rating) {
+        const ratingArr = Array.from(new Array(Math.floor(rating)));
+        const mapResult = ratingArr.map((item, index) => {
+          // return icons
+          return (
+            <FontAwesome name="star" key={index} size={20} color="#FECD1A" />
+          );
+        });
+        return mapResult;
+      }
     };
+
+    const renderIsOpen = item => {
+      if (item.openingHours && item.openingHours.openNow) {
+        return (
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                marginRight: 5,
+              }}>
+              Open
+            </Text>
+            <FontAwesome name="unlock" size={25} color="green" />
+          </View>
+        );
+      } else {
+        return (
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                marginRight: 5,
+              }}>
+              closed
+            </Text>
+            <FontAwesome name="lock" size={20} color="red" />
+          </View>
+        );
+      }
+    };
+
     return (
       <FlatList
         contentContainerStyle={{
@@ -46,6 +75,7 @@ export const Restaurants = ({navigation}) => {
         data={restaurants}
         keyExtractor={(item, index) => index}
         renderItem={({item}) => {
+          console.log(item);
           return (
             <TouchableOpacity
               onPress={() => navigation.navigate('Details', {restaurant: item})}
@@ -55,6 +85,7 @@ export const Restaurants = ({navigation}) => {
               <Image source={{uri: item.photos[0]}} style={styles.img} />
               <Text style={styles.text}> {item.name} </Text>
               <Text> {item.vicinity} </Text>
+
               <View
                 style={{
                   flexDirection: 'row',
@@ -62,6 +93,8 @@ export const Restaurants = ({navigation}) => {
                 }}>
                 {renderRating(item.rating)}
               </View>
+
+              <View>{renderIsOpen(item)}</View>
             </TouchableOpacity>
           );
         }}

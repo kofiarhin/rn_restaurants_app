@@ -26,6 +26,7 @@ export const LocationContextProvider = ({children}) => {
     // to lowercase first
     //seach location
     const search = searchTerm.toLowerCase();
+
     locationRequest(search)
       .then(locationTransform)
       .then(response => {
