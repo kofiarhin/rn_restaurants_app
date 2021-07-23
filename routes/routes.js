@@ -2,7 +2,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home, Details} from '../screens';
-import {RestaurantContextProvider} from '../mock/restaurant/restaurant.context';
+import {RestaurantContextProvider} from '../context/restaurant/restaurant.context';
+import {LocationContextProvider} from '../context/locations/location.context';
 
 const HomeStack = createStackNavigator();
 
@@ -20,11 +21,13 @@ const HomeStackScreen = () => {
 
 const Routes = () => {
   return (
-    <RestaurantContextProvider>
-      <NavigationContainer>
-        <HomeStackScreen />
-      </NavigationContainer>
-    </RestaurantContextProvider>
+    <LocationContextProvider>
+      <RestaurantContextProvider>
+        <NavigationContainer>
+          <HomeStackScreen />
+        </NavigationContainer>
+      </RestaurantContextProvider>
+    </LocationContextProvider>
   );
 };
 

@@ -8,37 +8,65 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {RestaurantContext} from '../../mock/restaurant/restaurant.context';
+import {RestaurantContext} from '../../context/restaurant/restaurant.context';
+import {Search} from './component/Search.component';
+import {  ActivityIndicator} from "react-native-paper"
 
 export const Restaurants = ({navigation}) => {
-  const {restaurants} = useContext(RestaurantContext);
+  const {restaurants, isLoading} = useContext(RestaurantContext);
 
-  console.log(navigation);
+  const renderRestaurants = () => {
+    return (
+      <FlatList
+        contentContainerStyle={{
+          padding: 20,
+        }}
+        data={restaurants}
+        keyExtractor={(item, index) => index}
+        renderItem={({item}) => {
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Details', {restaurant: item})}
+              style={{
+                marginBottom: 20,
+              }}>
+              <Image source={{uri: item.photos[0]}} style={styles.img} />
+              <Text style={styles.text}> {item.name} </Text>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    );
+  };
 
   return (
-    <SafeAreaView>
-      <View>
-        <FlatList
-          contentContainerStyle={{
-            padding: 20,
-          }}
-          data={restaurants}
-          keyExtractor={item => item.id}
-          renderItem={({item}) => {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('Details', {restaurant: item})
-                }
-                style={{
-                  marginBottom: 20,
-                }}>
-                <Image source={{uri: item.photos[0]}} style={styles.img} />
-                <Text style={styles.text}> {item.name} </Text>
-              </TouchableOpacity>
-            );
-          }}
-        />
+    <SafeAreaView
+      style={{
+        flex: 1,
+      }}>
+      <View
+        style={{
+          flex: 1,
+        }}>
+        {/* search component */}
+        <Search />
+        {/* list of restaurants */}
+        {isLoading ? (
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center"
+              
+            }}>
+            <ActivityIndicator
+              size={80}
+        
+            />
+          </View>
+        ) : (
+          renderRestaurants()
+        )}
       </View>
     </SafeAreaView>
   );
