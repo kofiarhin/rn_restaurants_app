@@ -10,12 +10,34 @@ import {
 } from 'react-native';
 import {RestaurantContext} from '../../context/restaurant/restaurant.context';
 import {Search} from './component/Search.component';
-import {  ActivityIndicator} from "react-native-paper"
+import {ActivityIndicator} from 'react-native-paper';
+import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export const Restaurants = ({navigation}) => {
   const {restaurants, isLoading} = useContext(RestaurantContext);
 
   const renderRestaurants = () => {
+    const renderRating = rating => {
+      const ratingArr = Array.from(new Array(Math.ceil(rating)));
+
+      const mapResult = ratingArr.map((item, index) => {
+        // return icons
+        return (
+          <FontAwesome
+            name="star"
+            color="#FDB827"
+            key={index}
+            size={20}
+            style={{
+              marginRight: 5,
+            }}
+          />
+        );
+      });
+
+      return mapResult;
+    };
     return (
       <FlatList
         contentContainerStyle={{
@@ -32,6 +54,14 @@ export const Restaurants = ({navigation}) => {
               }}>
               <Image source={{uri: item.photos[0]}} style={styles.img} />
               <Text style={styles.text}> {item.name} </Text>
+              <Text> {item.vicinity} </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginVertical: 10,
+                }}>
+                {renderRating(item.rating)}
+              </View>
             </TouchableOpacity>
           );
         }}
@@ -55,14 +85,10 @@ export const Restaurants = ({navigation}) => {
           <View
             style={{
               flex: 1,
-              justifyContent: "center",
-              alignItems: "center"
-              
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            <ActivityIndicator
-              size={80}
-        
-            />
+            <ActivityIndicator size={80} />
           </View>
         ) : (
           renderRestaurants()
@@ -79,7 +105,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: '100%',
-    height: 300,
+    height: 200,
     marginBottom: 10,
   },
 });
