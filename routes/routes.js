@@ -28,7 +28,8 @@ const AppTabsScreen = () => {
     <AppTabs.Navigator
       tabBarOptions={{
         showLabel: false,
-        activeTintColor: '#38598B',
+        activeTintColor: '#04009A',
+        inactiveTintColor: '#687980',
       }}>
       <AppTabs.Screen
         name="Home"
