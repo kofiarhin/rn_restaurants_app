@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,11 +6,16 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {List} from 'react-native-paper';
 
 export const Details = ({route, navigation}) => {
   const {restaurant} = route.params;
+  const [isBreakfastOpen, setIsBreakfastOpen] = useState(false);
+  const [isLunchOpen, setIsLunchOpen] = useState(false);
+  const [isDinnerOpen, setIsDinnerOpen] = useState(false);
 
   return (
     <SafeAreaView>
@@ -24,14 +29,44 @@ export const Details = ({route, navigation}) => {
         using google map
       */}
       <View style={styles.container}>
-        <Image
-          source={{
-            uri: restaurant.photos[0],
-          }}
-          style={styles.img}
-        />
+        <View>
+          <Image
+            source={{
+              uri: restaurant.photos[0],
+            }}
+            style={styles.img}
+          />
+          <Text style={styles.text}> {restaurant.name} </Text>
+        </View>
 
-        <Text style={styles.text}> {restaurant.name} </Text>
+        <ScrollView>
+          <List.Accordion
+            title="Breakfast"
+            left={props => <List.Icon {...props} icon="bread-slice" />}
+            expanded={isBreakfastOpen}
+            onPress={() => setIsBreakfastOpen(!isBreakfastOpen)}>
+            <List.Item title="First item" />
+            <List.Item title="Second item" />
+          </List.Accordion>
+
+          <List.Accordion
+            title="Lunch"
+            left={props => <List.Icon {...props} icon="hamburger" />}
+            expanded={isLunchOpen}
+            onPress={() => setIsLunchOpen(!isLunchOpen)}>
+            <List.Item title="First item" />
+            <List.Item title="Second item" />
+          </List.Accordion>
+
+          <List.Accordion
+            title="Dinner"
+            left={props => <List.Icon {...props} icon="food-variant" />}
+            expanded={isDinnerOpen}
+            onPress={() => setIsDinnerOpen(!isDinnerOpen)}>
+            <List.Item title="First item" />
+            <List.Item title="Second item" />
+          </List.Accordion>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -48,7 +83,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: '100%',
-    height: 400,
+    height: 200,
     marginBottom: 20,
   },
 });
