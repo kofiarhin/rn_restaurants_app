@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Details, Maps} from '../screens';
+import {Home, Details, Maps, Settings} from '../screens';
 import {RestaurantContextProvider} from '../context/restaurant/restaurant.context';
 import {LocationContextProvider} from '../context/locations/location.context';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -45,7 +45,17 @@ const AppTabsScreen = () => {
         component={Maps}
         options={{
           tabBarIcon: ({size, color}) => (
-            <Icon name="navigate-circle-outline" size={size} color={color} />
+            <Icon name="map-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <AppTabs.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarIcon: ({size, color}) => (
+            <Icon name="settings-outline" size={size} color={color} />
           ),
         }}
       />
