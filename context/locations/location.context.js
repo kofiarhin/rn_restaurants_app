@@ -8,7 +8,7 @@ import {
 export const LocationContext = createContext();
 export const LocationContextProvider = ({children}) => {
   const [location, setLocation] = useState({});
-  const [keyWord, setKeyWord] = useState('Chicago');
+  const [keyword, setKeyword] = useState('Chicago');
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -38,9 +38,9 @@ export const LocationContextProvider = ({children}) => {
     <LocationContext.Provider
       value={{
         location,
-        keyWord,
+        keyword,
         searchLocation,
-        setKeyWord,
+        setKeyword,
       }}>
       {children}
     </LocationContext.Provider>

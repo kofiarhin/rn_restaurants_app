@@ -75,7 +75,6 @@ export const Restaurants = ({navigation}) => {
         data={restaurants}
         keyExtractor={(item, index) => index}
         renderItem={({item}) => {
-          console.log(item);
           return (
             <TouchableOpacity
               onPress={() => navigation.navigate('Details', {restaurant: item})}

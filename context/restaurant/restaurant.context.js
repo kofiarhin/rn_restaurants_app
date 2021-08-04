@@ -6,6 +6,7 @@ export const RestaurantContext = createContext();
 
 export const RestaurantContextProvider = ({children}) => {
   const [restaurants, setRestaurants] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const {location, keyWord, setKeyWord} = useContext(LocationContext);
 
@@ -20,13 +21,17 @@ export const RestaurantContextProvider = ({children}) => {
           setRestaurants(response);
           setIsLoading(false);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          setError(error);
+          console.log(error);
+        });
     }, 2000);
   };
 
   useEffect(() => {
     getRestaurants();
   }, [location]);
+
   return (
     <RestaurantContext.Provider
       value={{

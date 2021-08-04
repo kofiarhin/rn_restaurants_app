@@ -1,7 +1,6 @@
 import {locations} from './mock/location.mock';
 
 export const locationRequest = (searchTerm = 'san francisco') => {
-  console.log('xxxx', {searchTerm});
   return new Promise((resolve, reject) => {
     const location = locations[searchTerm];
     if (!location) {
@@ -14,7 +13,8 @@ export const locationRequest = (searchTerm = 'san francisco') => {
 
 export const locationTransform = result => {
   const {results} = result;
-  const {geometry: location} = results[0];
-  const {lat, lng} = location.location;
-  return {lat, lng};
+  const {location, viewport} = results[0].geometry;
+
+  const {lat, lng} = location;
+  return {lat, lng, viewport};
 };
