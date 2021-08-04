@@ -1,15 +1,11 @@
 import React, {createContext, useEffect, useState} from 'react';
 import {locationRequest, locationTransform} from './location.service';
-import {
-  restaurantRequest,
-  restaurantTransform,
-} from '../restaurant/restaurant.service';
 
 export const LocationContext = createContext();
 export const LocationContextProvider = ({children}) => {
   const [location, setLocation] = useState({});
   const [keyword, setKeyword] = useState('Chicago');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     locationRequest()
@@ -23,8 +19,6 @@ export const LocationContextProvider = ({children}) => {
   }, []);
 
   const searchLocation = searchTerm => {
-    // to lowercase first
-    //seach location
     const search = searchTerm.toLowerCase();
 
     locationRequest(search)
@@ -32,7 +26,7 @@ export const LocationContextProvider = ({children}) => {
       .then(response => {
         setLocation(response);
       })
-      .catch(error => console.log(error));
+      .catch(error => setError(error));
   };
   return (
     <LocationContext.Provider

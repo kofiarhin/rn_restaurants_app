@@ -29,6 +29,19 @@ export const Maps = () => {
     setRegion(mapRegion);
   }, [location]);
 
+  const renderRestaurants = () => {
+    return restaurants.map(restaurant => {
+      return (
+        <Marker
+          key={restaurant.name}
+          coordinate={{
+            latitude: restaurant.geometry.location.lat,
+            longitude: restaurant.geometry.lng,
+          }}></Marker>
+      );
+    });
+  };
+
   return (
     <View
       style={{
@@ -50,7 +63,9 @@ export const Maps = () => {
         region={region}
         style={{
           flex: 1,
-        }}></MapView>
+        }}>
+        {renderRestaurants()}
+      </MapView>
     </View>
   );
 };

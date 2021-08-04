@@ -39,12 +39,8 @@ export const Restaurants = ({navigation}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text
-              style={{
-                marginRight: 5,
-              }}>
-              Open
-            </Text>
+            <Text style={[styles.text, {marginRight: 10}]}>Open</Text>
+            {/* change icon */}
             <FontAwesome name="unlock" size={25} color="green" />
           </View>
         );
@@ -55,13 +51,8 @@ export const Restaurants = ({navigation}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text
-              style={{
-                marginRight: 5,
-              }}>
-              closed
-            </Text>
-            <FontAwesome name="lock" size={20} color="red" />
+            <Text style={[styles.text, {marginRight: 10}]}>closed</Text>
+            <FontAwesome name="lock" size={25} color="red" />
           </View>
         );
       }
@@ -82,8 +73,11 @@ export const Restaurants = ({navigation}) => {
                 marginBottom: 20,
               }}>
               <Image source={{uri: item.photos[0]}} style={styles.img} />
-              <Text style={styles.text}> {item.name} </Text>
-              <Text> {item.vicinity} </Text>
+              <Text style={[styles.text, {marginBottom: 10}]}>
+                {' '}
+                {item.name}{' '}
+              </Text>
+              <Text style={styles.text}> {item.vicinity} </Text>
 
               <View
                 style={{
@@ -131,9 +125,17 @@ export const Restaurants = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   text: {
     fontSize: 20,
-    marginBottom: 10,
+    fontFamily: 'Tajawal-Regular',
+  },
+  textBold: {
+    fontSize: 20,
+    fontFamily: 'Tajawal-Bold',
   },
   img: {
     width: '100%',

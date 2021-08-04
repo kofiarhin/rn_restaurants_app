@@ -23,7 +23,6 @@ export const RestaurantContextProvider = ({children}) => {
         })
         .catch(error => {
           setError(error);
-          console.log(error);
         });
     }, 2000);
   };
