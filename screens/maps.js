@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import MapView, {Marker, PROVIDER_GOOGLE, Callout} from 'react-native-maps';
 import {Searchbar} from 'react-native-paper';
 
 // context
@@ -64,7 +64,38 @@ export const Maps = () => {
         style={{
           flex: 1,
         }}>
-        {renderRestaurants()}
+        {restaurants.map(restaurant => {
+          console.log(restaurant);
+          return (
+            <Marker
+              key={restaurant.name}
+              title={restaurant.name}
+              coordinate={{
+                latitude: restaurant.geometry.location.lat,
+                longitude: restaurant.geometry.location.lng,
+              }}>
+              <Callout>
+                <View>
+                  <Image
+                    source={{uri: restaurant.photos[0]}}
+                    style={{
+                      width: 150,
+                      height: 200,
+                      marginBottom: 10,
+                    }}
+                  />
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                  }}>
+                  <Text style={[styles.text]}> {restaurant.name}</Text>
+                </View>
+              </Callout>
+            </Marker>
+          );
+        })}
       </MapView>
     </View>
   );
@@ -77,5 +108,9 @@ const styles = StyleSheet.create({
     zIndex: 1000,
     width: '100%',
     paddingHorizontal: 20,
+  },
+  text: {
+    fontSize: 20,
+    fontFamily: 'Tajawal-Bold',
   },
 });
