@@ -2,21 +2,20 @@ import React, {useState, useEffect, useContext} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE, Callout} from 'react-native-maps';
 import {Searchbar} from 'react-native-paper';
+import {ActivityIndicator} from 'react-native-paper';
 
 // context
 import {RestaurantContext} from '../context/restaurant/restaurant.context';
 import {LocationContext} from '../context/locations/location.context';
 
-export const Maps = () => {
-  const {restaurants} = useContext(RestaurantContext);
+export const Maps = ({navigation}) => {
+  const {restaurants, isLoading} = useContext(RestaurantContext);
   const {location, keyword, searchLocation} = useContext(LocationContext);
 
   const [searchKeyword, setSearchKeyword] = useState('');
   const [region, setRegion] = useState(null);
   useEffect(() => {
     //  calculate region
-
-    console.log(location);
 
     const mapRegion = {
       latitude: location.lat,
@@ -29,74 +28,74 @@ export const Maps = () => {
     setRegion(mapRegion);
   }, [location]);
 
-  const renderRestaurants = () => {
-    return restaurants.map(restaurant => {
-      return (
-        <Marker
-          key={restaurant.name}
-          coordinate={{
-            latitude: restaurant.geometry.location.lat,
-            longitude: restaurant.geometry.lng,
-          }}></Marker>
-      );
-    });
-  };
-
   return (
     <View
       style={{
         flex: 1,
       }}>
-      <View style={styles.search}>
-        {/* searchbar */}
-        <Searchbar
-          value={searchKeyword}
-          onChangeText={text => setSearchKeyword(text)}
-          onSubmitEditing={() => {
-            searchLocation(searchKeyword.toLowerCase());
-          }}
-        />
-      </View>
+      {isLoading ? (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <ActivityIndicator size={80} />
+        </View>
+      ) : (
+        <>
+          <View style={styles.search}>
+            {/* searchbar */}
+            <Searchbar
+              value={searchKeyword}
+              onChangeText={text => setSearchKeyword(text)}
+              onSubmitEditing={() => {
+                searchLocation(searchKeyword.toLowerCase());
+              }}
+            />
+          </View>
 
-      <MapView
-        provider={PROVIDER_GOOGLE}
-        region={region}
-        style={{
-          flex: 1,
-        }}>
-        {restaurants.map(restaurant => {
-          console.log(restaurant);
-          return (
-            <Marker
-              key={restaurant.name}
-              title={restaurant.name}
-              coordinate={{
-                latitude: restaurant.geometry.location.lat,
-                longitude: restaurant.geometry.location.lng,
-              }}>
-              <Callout>
-                <View>
-                  <Image
-                    source={{uri: restaurant.photos[0]}}
-                    style={{
-                      width: 150,
-                      height: 200,
-                      marginBottom: 10,
-                    }}
-                  />
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
+          <MapView
+            provider={PROVIDER_GOOGLE}
+            region={region}
+            style={{
+              flex: 1,
+            }}>
+            {restaurants.map(restaurant => {
+              return (
+                <Marker
+                  key={restaurant.name}
+                  title={restaurant.name}
+                  coordinate={{
+                    latitude: restaurant.geometry.location.lat,
+                    longitude: restaurant.geometry.location.lng,
                   }}>
-                  <Text style={[styles.text]}> {restaurant.name}</Text>
-                </View>
-              </Callout>
-            </Marker>
-          );
-        })}
-      </MapView>
+                  <Callout
+                    onPress={() =>
+                      navigation.navigate('Details', {restaurant})
+                    }>
+                    <View
+                      style={{
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        source={{uri: restaurant.photos[0]}}
+                        style={{
+                          width: 200,
+                          height: 150,
+                          marginBottom: 10,
+                        }}
+                      />
+
+                      <Text style={[styles.text]}> {restaurant.name}</Text>
+                    </View>
+                  </Callout>
+                </Marker>
+              );
+            })}
+          </MapView>
+        </>
+      )}
     </View>
   );
 };
