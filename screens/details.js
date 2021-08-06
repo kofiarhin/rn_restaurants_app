@@ -9,7 +9,9 @@ import {
   ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {List} from 'react-native-paper';
+import {colors, DefaultText, SubText} from '../constants';
 
 export const Details = ({route, navigation}) => {
   const {restaurant} = route.params;
@@ -17,8 +19,28 @@ export const Details = ({route, navigation}) => {
   const [isLunchOpen, setIsLunchOpen] = useState(false);
   const [isDinnerOpen, setIsDinnerOpen] = useState(false);
 
+  const renderRating = rating => {
+    const arrRating = Array.from(new Array(Math.ceil(rating)));
+
+    const mappedRating = arrRating.map(item => {
+      return (
+        <FontAwesome
+          name="star"
+          size={20}
+          color={colors.yellow}
+          style={{
+            marginRight: 10,
+          }}
+        />
+      );
+    });
+
+    return mappedRating;
+  };
+
   return (
     <SafeAreaView>
+      {/* back icon */}
       <View>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="chevron-back-outline" size={40} />
@@ -36,7 +58,14 @@ export const Details = ({route, navigation}) => {
             }}
             style={styles.img}
           />
-          <Text style={styles.text}> {restaurant.name} </Text>
+          <DefaultText> {restaurant.name} </DefaultText>
+          <SubText> {restaurant.vicinity} </SubText>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}>
+            {renderRating(restaurant.rating)}
+          </View>
         </View>
 
         <ScrollView>

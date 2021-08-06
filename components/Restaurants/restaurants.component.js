@@ -13,6 +13,7 @@ import {Search} from './component/Search.component';
 import {ActivityIndicator} from 'react-native-paper';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {DefaultText, SpacerRight} from '../../constants';
 
 export const Restaurants = ({navigation}) => {
   const {restaurants, isLoading} = useContext(RestaurantContext);
@@ -39,7 +40,8 @@ export const Restaurants = ({navigation}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text style={[styles.text, {marginRight: 10}]}>Open</Text>
+            <DefaultText>Open</DefaultText>
+            <SpacerRight />
             {/* change icon */}
             <FontAwesome name="unlock" size={25} color="green" />
           </View>
@@ -51,7 +53,7 @@ export const Restaurants = ({navigation}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text style={[styles.text, {marginRight: 10}]}>closed</Text>
+            <DefaultText>closed</DefaultText>
             <FontAwesome name="lock" size={25} color="red" />
           </View>
         );
