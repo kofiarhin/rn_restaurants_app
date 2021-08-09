@@ -2,10 +2,11 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Details, Maps, Settings} from '../screens';
+import {Home, Details, Maps, Settings, Favourites} from '../screens';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {RestaurantContextProvider} from '../context/restaurant/restaurant.context';
 import {LocationContextProvider} from '../context/locations/location.context';
-import Icon from 'react-native-vector-icons/Ionicons';
+import {FavouritesContextProvider} from '../context/favourites/favourites.context';
 
 const HomeStack = createStackNavigator();
 
@@ -51,6 +52,16 @@ const AppTabsScreen = () => {
       />
 
       <AppTabs.Screen
+        name="Favourites"
+        component={Favourites}
+        options={{
+          tabBarIcon: ({size, color}) => (
+            <Icon name="heart-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <AppTabs.Screen
         name="Settings"
         component={Settings}
         options={{
@@ -65,13 +76,15 @@ const AppTabsScreen = () => {
 
 const Routes = () => {
   return (
-    <LocationContextProvider>
-      <RestaurantContextProvider>
-        <NavigationContainer>
-          <AppTabsScreen />
-        </NavigationContainer>
-      </RestaurantContextProvider>
-    </LocationContextProvider>
+    <FavouritesContextProvider>
+      <LocationContextProvider>
+        <RestaurantContextProvider>
+          <NavigationContainer>
+            <AppTabsScreen />
+          </NavigationContainer>
+        </RestaurantContextProvider>
+      </LocationContextProvider>
+    </FavouritesContextProvider>
   );
 };
 

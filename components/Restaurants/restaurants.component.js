@@ -14,6 +14,7 @@ import {ActivityIndicator} from 'react-native-paper';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {DefaultText, SpacerRight} from '../../constants';
+import {Favourite} from './component/favourite.component';
 
 export const Restaurants = ({navigation}) => {
   const {restaurants, isLoading} = useContext(RestaurantContext);
@@ -74,6 +75,7 @@ export const Restaurants = ({navigation}) => {
               style={{
                 marginBottom: 20,
               }}>
+              <Favourite />
               <Image source={{uri: item.photos[0]}} style={styles.img} />
               <Text style={[styles.text, {marginBottom: 10}]}>
                 {' '}
