@@ -75,7 +75,7 @@ export const Restaurants = ({navigation}) => {
               style={{
                 marginBottom: 20,
               }}>
-              <Favourite />
+              <Favourite restaurant={item} />
               <Image source={{uri: item.photos[0]}} style={styles.img} />
               <Text style={[styles.text, {marginBottom: 10}]}>
                 {' '}

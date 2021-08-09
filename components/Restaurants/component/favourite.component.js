@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {FavouritesContext} from '../../../context/favourites/favourites.context';
 
 export const Favourite = ({restaurant}) => {
+  const {favourites, addToFavourites, removeFromFavourites} =
+    useContext(FavouritesContext);
+
+  const isFavourite = favourites.find(
+    item => item.placeId == restaurant.placeId,
+  );
+
   return (
     <View
       style={{
@@ -11,8 +19,17 @@ export const Favourite = ({restaurant}) => {
         right: 10,
         zIndex: 8000,
       }}>
-      <TouchableOpacity onPress={() => console.log('add to favourite')}>
-        <Icon name="heart-circle-outline" size={30} color="white" />
+      <TouchableOpacity
+        onPress={() =>
+          !isFavourite
+            ? addToFavourites(restaurant)
+            : removeFromFavourites(restaurant)
+        }>
+        <Icon
+          name={isFavourite ? 'heart-circle-outline' : 'heart-outline'}
+          size={30}
+          color={isFavourite ? 'red' : 'white'}
+        />
       </TouchableOpacity>
     </View>
   );
