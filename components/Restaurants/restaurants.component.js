@@ -55,6 +55,7 @@ export const Restaurants = ({navigation}) => {
               alignItems: 'center',
             }}>
             <DefaultText>closed</DefaultText>
+            <SpacerRight />
             <FontAwesome name="lock" size={25} color="red" />
           </View>
         );
@@ -77,19 +78,16 @@ export const Restaurants = ({navigation}) => {
               }}>
               <Favourite restaurant={item} />
               <Image source={{uri: item.photos[0]}} style={styles.img} />
-              <Text style={[styles.text, {marginBottom: 10}]}>
-                {' '}
-                {item.name}{' '}
-              </Text>
-              <Text style={styles.text}> {item.vicinity} </Text>
+              <Text style={styles.textBold}> {item.name} </Text>
 
               <View
                 style={{
                   flexDirection: 'row',
-                  marginVertical: 10,
+                  marginBottom: 10,
                 }}>
                 {renderRating(item.rating)}
               </View>
+              <Text style={styles.textSmall}> {item.vicinity} </Text>
 
               <View>{renderIsOpen(item)}</View>
             </TouchableOpacity>
@@ -136,10 +134,17 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     fontFamily: 'Tajawal-Regular',
+    marginBottom: 10,
+  },
+  textSmall: {
+    fontSize: 15,
+    marginBottom: 10,
+    fontFamily: 'Tajawal-Regular',
   },
   textBold: {
     fontSize: 20,
     fontFamily: 'Tajawal-Bold',
+    marginBottom: 10,
   },
   img: {
     width: '100%',
