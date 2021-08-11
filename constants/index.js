@@ -6,6 +6,7 @@ import {
   SpacerRight,
   SpacerLeft,
   SpacerBottom,
+  Title,
 } from './typography';
 
 export {
@@ -16,4 +17,5 @@ export {
   SpacerLeft,
   SpacerBottom,
   landingBg,
+  Title,
 };

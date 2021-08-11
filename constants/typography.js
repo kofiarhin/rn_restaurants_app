@@ -4,13 +4,19 @@ import styled from 'styled-components/native';
 export const DefaultText = styled.Text`
   font-size: 18px;
   font-family: Tajawal-Regular;
-  margin-bottom: 10px;
 `;
 
 export const SubText = styled.Text`
   font-size: 15px;
   font-family: Tajawal-Regular;
   margin-bottom: 10px;
+`;
+
+export const Title = styled.Text`
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Tajawal-Bold;
 `;
 
 export const SpacerRight = styled.View`

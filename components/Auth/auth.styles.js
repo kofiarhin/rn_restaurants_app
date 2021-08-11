@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {landingBg} from '../../constants';
-import {Button} from 'react-native-paper';
+import {Button, TextInput} from 'react-native-paper';
 import {View} from 'react-native';
 
 export const AuthBackground = styled.ImageBackground.attrs({
@@ -23,7 +23,11 @@ export const AuthCover = styled.View`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
-  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
   justify-content: center;
+  padding: 20px;
+`;
+
+export const AuthInput = styled(TextInput)`
+  width: 300px;
 `;
