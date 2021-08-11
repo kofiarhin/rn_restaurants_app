@@ -23,9 +23,10 @@ export const Details = ({route, navigation}) => {
   const renderRating = rating => {
     const arrRating = Array.from(new Array(Math.ceil(rating)));
 
-    const mappedRating = arrRating.map(item => {
+    const mappedRating = arrRating.map((item, index) => {
       return (
         <FontAwesome
+          key={index}
           name="star"
           size={20}
           color={colors.yellow}
