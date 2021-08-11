@@ -26,7 +26,7 @@ export const Favourites = ({navigation}) => {
             <Text
               style={[
                 styles.text,
-                {textAlign: 'center', marginBotom: 20, fontWeight: 'bold'},
+                {textAlign: 'center', marginBottom: 20, fontWeight: 'bold'},
               ]}>
               {' '}
               Favourites
