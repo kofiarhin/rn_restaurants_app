@@ -19,7 +19,7 @@ export const Login = ({navigation}) => {
       <AuthCover>
         <Title> Login </Title>
         <AuthInput label="Email" />
-        <AuthInput label="Password" secureText />
+        <AuthInput label="Password" secureTextEntry />
         <SpacerBottom />
         <AuthButton onPress={() => onLogin()}> Login</AuthButton>
         <SpacerBottom />

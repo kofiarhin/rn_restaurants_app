@@ -13,8 +13,14 @@ export const Register = ({navigation}) => {
     <AuthBackground>
       <AuthCover>
         <Title> Register </Title>
-        <AuthInput label="Email" />
-        <AuthInput label="Password" secureText />
+        <AuthInput
+          label="Email"
+          textContentType="emailAddress"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+        <AuthInput label="Password" secureTextEntry />
+        <AuthInput label="Confirm Password" secureTextEntry />
         <SpacerBottom />
         <AuthButton onPress={() => navigation.navigate('Login')}>
           {' '}
