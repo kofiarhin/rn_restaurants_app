@@ -13,6 +13,7 @@ export const Register = ({navigation}) => {
     <AuthBackground>
       <AuthCover>
         <Title> Register </Title>
+        <SpacerBottom />
         <AuthInput
           label="Email"
           textContentType="emailAddress"

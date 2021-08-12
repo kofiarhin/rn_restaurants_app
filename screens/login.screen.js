@@ -7,9 +7,8 @@ import {
   AuthInput,
 } from '../components/Auth/auth.styles';
 import {AuthContext} from '../context/Auth/auth.context';
-import {SpacerBottom} from '../constants';
 import {TextInput} from 'react-native-paper';
-import {Title, DefaultText} from '../constants';
+import {Title, DefaultText, SpacerBottom} from '../constants';
 
 export const Login = ({navigation}) => {
   const {isAuth, onLogin} = useContext(AuthContext);
@@ -18,6 +17,7 @@ export const Login = ({navigation}) => {
     <AuthBackground>
       <AuthCover>
         <Title> Login </Title>
+        <SpacerBottom />
         <AuthInput label="Email" />
         <AuthInput label="Password" secureTextEntry />
         <SpacerBottom />

@@ -6,27 +6,18 @@ export const DefaultText = styled.Text`
   font-family: Tajawal-Regular;
 `;
 
+export const TextBold = styled.Text`
+  font-size: 20px;
+  font-family: Tajawal-Bold;
+`;
+
 export const SubText = styled.Text`
   font-size: 15px;
   font-family: Tajawal-Regular;
-  margin-bottom: 10px;
 `;
 
 export const Title = styled.Text`
   font-size: 40px;
-  margin-bottom: 20px;
   text-align: center;
   font-family: Tajawal-Bold;
-`;
-
-export const SpacerRight = styled.View`
-  margin-right: 10px;
-`;
-
-export const SpacerLeft = styled.View`
-  marginleft: 10px;
-`;
-
-export const SpacerBottom = styled.View`
-  margin-bottom: 20px;
 `;

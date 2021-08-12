@@ -42,9 +42,6 @@ export const Restaurants = ({navigation}) => {
               alignItems: 'center',
             }}>
             <DefaultText>Open</DefaultText>
-            <SpacerRight />
-            {/* change icon */}
-            <FontAwesome name="unlock" size={25} color="green" />
           </View>
         );
       } else {
@@ -54,9 +51,7 @@ export const Restaurants = ({navigation}) => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <DefaultText>closed</DefaultText>
-            <SpacerRight />
-            <FontAwesome name="lock" size={25} color="red" />
+            <DefaultText>Closed</DefaultText>
           </View>
         );
       }
