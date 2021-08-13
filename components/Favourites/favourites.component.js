@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {FavouritesContext} from '../../context/favourites/favourites.context';
-import {Favourite} from '../Restaurants/component/favourite.component';
+import {Favourite} from './component/favourite.component';
 import {DefaultText} from '../constants/typography';
 
 export const Favourites = ({navigation}) => {

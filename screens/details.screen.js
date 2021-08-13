@@ -12,7 +12,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {List} from 'react-native-paper';
 import {colors, DefaultText, SubText} from '../constants';
-import {Favourite} from '../components/Restaurants/component/favourite.component';
+// import {Favourite} from '../components/Restaurants/component/favourite.component';
+import {Favourite} from '../components/Favourites/component/favourite.component';
 
 export const DetailsScreen = ({route, navigation}) => {
   const {restaurant} = route.params;
