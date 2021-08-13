@@ -1,9 +1,18 @@
-import {Home} from './home.screen';
-import {Details} from './details.screen';
-import {Maps} from './maps.screen';
-import {Settings} from './settings.screen';
-import {Favourites} from './favourites.screen';
-import {Main} from './main.screen';
-import {Login} from './login.screen';
-import {Register} from './register.screen';
-export {Home, Details, Maps, Settings, Favourites, Main, Login, Register};
+import {HomeScreen} from './home.screen';
+import {DetailsScreen} from './details.screen';
+import {MapsScreen} from './maps.screen';
+import {SettingsScreen} from './settings.screen';
+import {FavouritesScreen} from './favourites.screen';
+import {MainScreen} from './main.screen';
+import {LoginScreen} from './login.screen';
+import {RegisterScreen} from './register.screen';
+export {
+  HomeScreen,
+  DetailsScreen,
+  MapsScreen,
+  SettingsScreen,
+  FavouritesScreen,
+  MainScreen,
+  LoginScreen,
+  RegisterScreen,
+};

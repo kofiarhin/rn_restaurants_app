@@ -10,7 +10,7 @@ import {AuthContext} from '../context/Auth/auth.context';
 import {TextInput} from 'react-native-paper';
 import {Title, DefaultText, SpacerBottom} from '../constants';
 
-export const Login = ({navigation}) => {
+export const LoginScreen = ({navigation}) => {
   const {isAuth, onLogin} = useContext(AuthContext);
 
   return (

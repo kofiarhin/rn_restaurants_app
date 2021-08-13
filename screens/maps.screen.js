@@ -8,7 +8,7 @@ import {ActivityIndicator} from 'react-native-paper';
 import {RestaurantContext} from '../context/restaurant/restaurant.context';
 import {LocationContext} from '../context/locations/location.context';
 
-export const Maps = ({navigation}) => {
+export const MapsScreen = ({navigation}) => {
   const {restaurants, isLoading} = useContext(RestaurantContext);
   const {location, keyword, searchLocation} = useContext(LocationContext);
 

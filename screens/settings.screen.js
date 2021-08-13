@@ -5,7 +5,7 @@ import {AuthContext} from '../context/Auth/auth.context';
 import {Avatar} from 'react-native-paper';
 import {SpacerBottom} from '../constants';
 
-export const Settings = () => {
+export const SettingsScreen = () => {
   const {onLogout} = useContext(AuthContext);
   return (
     <SafeAreaView

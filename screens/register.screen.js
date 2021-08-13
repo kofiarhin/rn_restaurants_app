@@ -8,7 +8,7 @@ import {
 } from '../components/Auth/auth.styles';
 import {Title, SpacerBottom, DefaultText} from '../constants';
 
-export const Register = ({navigation}) => {
+export const RegisterScreen = ({navigation}) => {
   return (
     <AuthBackground>
       <AuthCover>

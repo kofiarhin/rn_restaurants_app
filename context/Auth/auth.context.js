@@ -9,7 +9,7 @@ export const AuthContextProvider = ({children}) => {
     <AuthContext.Provider
       value={{
         isAuth,
-        onLogin: () => setIsAuth(true),
+        onLogin: () => setIsAuth(false),
         onLogout: () => setIsAuth(false),
       }}>
       {children}

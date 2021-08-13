@@ -4,7 +4,7 @@ import {SpacerBottom} from '../constants';
 import {Text, StyleSheet, View} from 'react-native';
 import LottieView from 'lottie-react-native';
 
-export const Main = ({navigation}) => {
+export const MainScreen = ({navigation}) => {
   return (
     <AuthBackground>
       <View

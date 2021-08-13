@@ -2,7 +2,13 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Details, Maps, Settings, Favourites} from '../screens';
+import {
+  HomeScreen,
+  DetailsScreen,
+  MapsScreen,
+  SettingsScreen,
+  FavouritesScreen,
+} from '../screens';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {RestaurantContextProvider} from '../context/restaurant/restaurant.context';
 import {LocationContextProvider} from '../context/locations/location.context';
@@ -17,8 +23,8 @@ const HomeStackScreen = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Details" component={Details} />
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Details" component={DetailsScreen} />
     </HomeStack.Navigator>
   );
 };
@@ -33,8 +39,9 @@ const AppTabsScreen = () => {
         activeTintColor: '#04009A',
         inactiveTintColor: '#687980',
       }}>
+      {/* home screen */}
       <AppTabs.Screen
-        name="Home"
+        name="HomeStack"
         component={HomeStackScreen}
         options={{
           tabBarIcon: ({size, color}) => (
@@ -42,9 +49,11 @@ const AppTabsScreen = () => {
           ),
         }}
       />
+
+      {/* maps screen */}
       <AppTabs.Screen
         name="Maps"
-        component={Maps}
+        component={MapsScreen}
         options={{
           tabBarIcon: ({size, color}) => (
             <Icon name="map-outline" size={size} color={color} />
@@ -52,9 +61,10 @@ const AppTabsScreen = () => {
         }}
       />
 
+      {/* favouriites screen */}
       <AppTabs.Screen
         name="Favourites"
-        component={Favourites}
+        component={FavouritesScreen}
         options={{
           tabBarIcon: ({size, color}) => (
             <Icon name="heart-outline" size={size} color={color} />
@@ -64,7 +74,7 @@ const AppTabsScreen = () => {
 
       <AppTabs.Screen
         name="Settings"
-        component={Settings}
+        component={SettingsScreen}
         options={{
           tabBarIcon: ({size, color}) => (
             <Icon name="settings-outline" size={size} color={color} />

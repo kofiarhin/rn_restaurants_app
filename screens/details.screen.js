@@ -14,7 +14,7 @@ import {List} from 'react-native-paper';
 import {colors, DefaultText, SubText} from '../constants';
 import {Favourite} from '../components/Restaurants/component/favourite.component';
 
-export const Details = ({route, navigation}) => {
+export const DetailsScreen = ({route, navigation}) => {
   const {restaurant} = route.params;
   const [isBreakfastOpen, setIsBreakfastOpen] = useState(false);
   const [isLunchOpen, setIsLunchOpen] = useState(false);
