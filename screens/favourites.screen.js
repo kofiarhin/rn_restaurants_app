@@ -1,10 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Favourites} from '../components/Favourites/favourites.component';
 
 export const FavouritesScreen = props => {
   return (
-    <View>
-      <Text> Favourites </Text>
+    <View style={styles.container}>
+      <Favourites {...props} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
