@@ -1,34 +1,14 @@
-import React, {useContext} from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
-import {AuthButton} from '../components/Auth/auth.styles';
-import {AuthContext} from '../context/Auth/auth.context';
-import {Avatar} from 'react-native-paper';
-import {SpacerBottom} from '../constants';
+import React from 'react';
+import {View, Text} from 'react-native';
+import {Settings} from '../components/Settings/settings.component';
 
 export const SettingsScreen = () => {
-  const {onLogout} = useContext(AuthContext);
   return (
-    <SafeAreaView
+    <View
       style={{
         flex: 1,
       }}>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Avatar.Image size={150} source={require('../assets/me.jpeg')} />
-        <SpacerBottom />
-        <AuthButton onPress={() => onLogout()}>Logout</AuthButton>
-      </View>
-    </SafeAreaView>
+      <Settings />
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    marginBottom: 10,
-  },
-});
